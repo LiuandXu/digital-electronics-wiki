@@ -2,7 +2,7 @@
 
 **数字电子技术**（Digital Electronics）是电子信息类专业的核心基础课程，研究数字信号的表示、处理与实现方法。本 Wiki 基于课程课件系统整理，涵盖从逻辑代数到模数转换的完整知识体系。
 
-> 共 **{{ extra.stats.pages }}** 个页面 | **{{ extra.stats.formulas }}** 个公式 | **{{ extra.stats.code_blocks }}** 个代码块
+> 共 **40** 个页面 | **1129** 个公式 | **56** 个代码块
 
 <hr>
 
