@@ -56,7 +56,7 @@ markdown_extensions:
       permalink: true
 
 extra_javascript:
-  - javascripts/mathjax.js
+  - javascripts/mathjax.js?v=2
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
   - javascripts/mermaid.js?v=2
 
