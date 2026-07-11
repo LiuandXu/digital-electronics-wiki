@@ -11,7 +11,7 @@
         });
     }
 
-    function initMermaid() {
+    function restoreAndRender() {
         var isDark = document.body.getAttribute('data-md-color-scheme') === 'slate';
         mermaid.initialize({
             startOnLoad: false,
@@ -19,12 +19,10 @@
             flowchart: { useMaxWidth: true }
         });
 
-        saveOriginalSource();
-
         document.querySelectorAll('.mermaid').forEach(function(el) {
             var key = el.dataset.mermaidId;
             if (key && mermaidSource[key]) {
-                el.innerHTML = mermaidSource[key];
+                el.textContent = mermaidSource[key];
                 el.removeAttribute('data-processed');
             }
         });
@@ -32,10 +30,22 @@
         mermaid.run({ querySelector: '.mermaid' });
     }
 
-    document.addEventListener('DOMContentLoaded', initMermaid);
+    function loadMermaid() {
+        saveOriginalSource();
+        var script = document.createElement('script');
+        script.src = 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js';
+        script.onload = restoreAndRender;
+        document.head.appendChild(script);
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', loadMermaid);
+    } else {
+        loadMermaid();
+    }
 
     var observer = new MutationObserver(function() {
-        initMermaid();
+        restoreAndRender();
     });
     observer.observe(document.body, { attributes: true, attributeFilter: ['data-md-color-scheme'] });
 })();
