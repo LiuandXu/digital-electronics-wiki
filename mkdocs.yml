@@ -24,9 +24,12 @@ theme:
     - navigation.sections
     - navigation.top
     - navigation.footer
+    - navigation.instant
     - search.suggest
     - search.highlight
+    - search.share
     - content.code.copy
+    - toc.follow
 
 plugins:
   - search
@@ -40,7 +43,7 @@ markdown_extensions:
       custom_fences:
         - name: mermaid
           class: mermaid
-          format: !!python/name:pymdownx.superfences.fence_code_format
+          format: !!python/name:pymdownx.superfences.fence_div_format
   - pymdownx.tabbed:
       alternate_style: true
   - pymdownx.tasklist:
@@ -54,26 +57,66 @@ markdown_extensions:
 
 extra_javascript:
   - javascripts/mathjax.js
-  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js
+  - javascripts/mermaid.js
 
 extra_css:
   - stylesheets/extra.css
 
+extra:
+  stats:
+    pages: 40
+    formulas: 1129
+    images: 0
+    code_blocks: 56
+
 nav:
   - 首页: index.md
-  - 数制与逻辑代数:
-    - 概述: ch01/index.md
-  - 逻辑门电路:
-    - 概述: ch02/index.md
-  - 组合逻辑电路:
-    - 概述: ch03/index.md
-  - 触发器:
-    - 概述: ch04/index.md
-  - 时序逻辑电路:
-    - 概述: ch05/index.md
-  - 脉冲电路:
-    - 概述: ch06/index.md
-  - 半导体存储器:
-    - 概述: ch07/index.md
-  - 数模与模数转换:
-    - 概述: ch08/index.md
+  - 第1章 数字逻辑概论:
+    - 1.1 数字信号与数字电路: ch01/index.md
+    - 1.2 EDA技术基础: ch01/1-2.md
+    - 1.3 硬件开发环境: ch01/1-3.md
+    - 本章总结: ch01/summary.md
+  - 第2章 逻辑代数:
+    - 2.1 数制及数制转换: ch02/index.md
+    - 2.2 码制: ch02/2-2.md
+    - 2.3 逻辑代数基础: ch02/2-3.md
+    - 2.4 逻辑函数化简: ch02/2-4.md
+    - 2.5 Verilog HDL基础: ch02/2-5.md
+    - 本章总结: ch02/summary.md
+  - 第3章 逻辑门电路:
+    - 3.1 逻辑门电路简介: ch03/index.md
+    - 3.2 TTL集成门电路: ch03/3-2.md
+    - 3.3 CMOS集成门电路: ch03/3-3.md
+    - 3.4 门电路接口: ch03/3-4.md
+    - 3.5 使用注意事项: ch03/3-5.md
+    - 本章总结: ch03/summary.md
+  - 第4章 组合逻辑电路:
+    - 4.1 组合逻辑电路概述: ch04/index.md
+    - 4.2 编码器: ch04/4-2.md
+    - 4.3 译码器: ch04/4-3.md
+    - 4.4 数据选择器: ch04/4-4.md
+    - 4.5 加法器: ch04/4-5.md
+    - 4.6 数值比较器: ch04/4-6.md
+    - 4.7 竞争与冒险: ch04/4-7.md
+    - 本章总结: ch04/summary.md
+  - 第5章 时序逻辑电路:
+    - 5.1 时序逻辑电路概述: ch05/index.md
+    - 5.2 触发器: ch05/5-2.md
+    - 5.3 寄存器: ch05/5-3.md
+    - 5.4 计数器: ch05/5-4.md
+    - 5.5 分析与设计方法: ch05/5-5.md
+    - 本章总结: ch05/summary.md
+  - 第6章 脉冲电路:
+    - 6.1 555电路: ch06/index.md
+    - 6.2 施密特与多谐振荡器: ch06/6-2.md
+    - 本章总结: ch06/summary.md
+  - 第7章 存储器与PLD:
+    - 7.1 半导体存储器: ch07/index.md
+    - 7.2 可编程逻辑器件: ch07/7-2.md
+    - 本章总结: ch07/summary.md
+  - 第8章 数模与模数转换:
+    - 8.1 D/A转换器: ch08/index.md
+    - 8.2 A/D转换器: ch08/8-2.md
+    - 本章总结: ch08/summary.md
