@@ -62,7 +62,7 @@ endmodule
 ### 本章知识结构
 
 ```mermaid
-graph TD
+graph LR
     A["组合逻辑电路"] --> B["4.1 概述"]
     A --> C["4.2 编码器"]
     A --> D["4.3 译码器"]

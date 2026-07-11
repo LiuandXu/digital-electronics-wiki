@@ -5,7 +5,7 @@
 ## 知识脉络
 
 ```mermaid
-graph TD
+graph LR
     A["第2章 逻辑代数及Verilog HDL基础"] --> B["数制与码制"]
     A --> C["逻辑代数理论"]
     A --> D["逻辑函数化简"]

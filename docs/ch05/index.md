@@ -213,7 +213,7 @@ S \cdot R = 0 \quad \text{（约束条件）}
 ### 九、本章知识结构
 
 ```mermaid
-graph TD
+graph LR
     A["时序逻辑电路"] --> B["基本单元"]
     A --> C["常用器件"]
     A --> D["分析设计"]

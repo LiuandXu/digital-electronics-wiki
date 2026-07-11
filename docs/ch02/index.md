@@ -216,7 +216,7 @@ graph LR
 ## 本章知识结构
 
 ```mermaid
-graph TD
+graph LR
     A["第2章 逻辑代数及Verilog HDL基础"] --> B["2.1 数制及数制转换"]
     A --> C["2.2 码制"]
     A --> D["2.3 逻辑代数基础"]
