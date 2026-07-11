@@ -1,0 +1,4 @@
+/* 隐藏侧边栏自动展开的 H3 导航 */
+.md-nav--primary > .md-nav__list > .md-nav__item > .md-nav > .md-nav__list > .md-nav__item--active > .md-nav > .md-nav__list {
+  display: none;
+}
