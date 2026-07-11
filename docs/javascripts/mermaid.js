@@ -1,6 +1,7 @@
 // Mermaid 暗色自动适配
 (function() {
     var mermaidSource = {};
+    window.__mermaidSource = mermaidSource;
 
     function saveOriginalSource() {
         document.querySelectorAll('.mermaid').forEach(function(el) {
@@ -33,6 +34,7 @@
     function loadMermaid() {
         saveOriginalSource();
         var script = document.createElement('script');
+        script.async = false;
         script.src = 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js';
         script.onload = restoreAndRender;
         document.head.appendChild(script);
