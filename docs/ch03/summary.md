@@ -14,8 +14,8 @@ graph LR
     A --> G["使用注意事项"]
     
     B --> B1["正/负逻辑"]
-    B --> B2["V_OH V_OL V_IH V_IL V_TH"]
-    B --> B3["抗干扰容限 V_NH V_NL"]
+    B --> B2["V<sub>OH</sub> V<sub>OL</sub> V<sub>IH</sub> V<sub>IL</sub> V<sub>TH</sub>"]
+    B --> B3["抗干扰容限 V<sub>NH</sub> V<sub>NL</sub>"]
     
     C --> C1["二极管与门"]
     C --> C2["二极管或门"]
