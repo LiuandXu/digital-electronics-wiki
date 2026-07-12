@@ -1,6 +1,6 @@
-// Mermaid 暗色自动适配
+// Mermaid 暗色自动适配 + instant navigation 支持
 (function() {
-    var MERMAID_SRC = 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js?v=2';
+    var MERMAID_SRC = 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js?v=3';
     var STORE = {};
     window.__mermaidSource = STORE;
     var loaded = false;
@@ -94,18 +94,24 @@
         start();
     }
 
+    // 监听 instant navigation 内容变化
+    if (typeof document$ !== 'undefined') {
+        document$.subscribe(function() {
+            STORE = {};
+            start();
+        });
+    }
+
+    // 仅监听主题切换（attribute 变化），不监听 childList 以避免干扰 MathJax
     var debounceTimer;
     var observer = new MutationObserver(function() {
         clearTimeout(debounceTimer);
         debounceTimer = setTimeout(function() {
-            capture();
-            if (!loaded) start(); else render();
+            if (loaded) render();
         }, 50);
     });
     observer.observe(document.body, {
         attributes: true,
-        attributeFilter: ['data-md-color-scheme'],
-        subtree: true,
-        childList: true
+        attributeFilter: ['data-md-color-scheme']
     });
 })();

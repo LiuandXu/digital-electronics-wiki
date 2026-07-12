@@ -13,7 +13,7 @@ if not isinstance(plugins, list):
 # 避免重复注入
 names = {p if isinstance(p, str) else list(p.keys())[0] for p in plugins}
 if "minify" not in names:
-    plugins.append({"minify": {"minify_html": False, "minify_js": True, "minify_css": True}})
+    plugins.append({"minify": {"minify_html": False, "minify_js": False, "minify_css": True}})
 if "git-revision-date-localized" not in names:
     plugins.append({"git-revision-date-localized": {"type": "date"}})
 

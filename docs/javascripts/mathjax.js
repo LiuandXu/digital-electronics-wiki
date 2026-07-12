@@ -1,10 +1,12 @@
 window.MathJax = {
   tex: {
     inlineMath: [['\\(', '\\)']],
-    displayMath: [['\\[', '\\]']]
+    displayMath: [['\\[', '\\]']],
+    processEscapes: true,
+    processEnvironment: true
   },
   options: {
-    skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
   },
   startup: {
     pageReady: () => {
