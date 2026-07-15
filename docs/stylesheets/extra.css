@@ -1,5 +1,6 @@
-/* Google Fonts — 像素风字体 */
+/* Google Fonts — 像素风字体（主源 + 国内镜像回退） */
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=ZCOOL+KuaiLe&display=swap');
+@import url('https://fonts.googleapis.cn/css2?family=Press+Start+2P&family=VT323&family=ZCOOL+KuaiLe&display=swap');
 
 /* ============================================================
    数字电子技术 Wiki — 自定义 UI 样式
@@ -307,10 +308,13 @@
   font-family: "VT323", "ZCOOL KuaiLe", "Noto Sans SC", monospace;
 }
 
-/* ===== 18. CRT 扫描线效果 ===== */
+/* ===== 18. CRT 扫描线效果（限制在首页内容区内） ===== */
+.dt-home {
+  position: relative;
+}
 .dt-home::before {
   content: '';
-  position: fixed;
+  position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
   background: repeating-linear-gradient(
     0deg,
@@ -320,7 +324,45 @@
     rgba(0, 212, 255, 0.03) 4px
   );
   pointer-events: none;
-  z-index: 9999;
+  z-index: 1;
+}
+
+/* ===== 18a. 首页时 MkDocs header/tabs 深色化 ===== */
+body:has(.dt-home) .md-header,
+body:has(.dt-home) .md-tabs {
+  background: #0a0e1a !important;
+  box-shadow: 0 1px 0 rgba(0, 212, 255, 0.2) !important;
+}
+body:has(.dt-home) .md-header__title {
+  color: #00d4ff !important;
+  font-family: "Press Start 2P", "VT323", monospace !important;
+  font-size: 0.8rem !important;
+  text-shadow: 0 0 5px rgba(0, 212, 255, 0.3);
+}
+body:has(.dt-home) .md-tabs__link {
+  color: #6b7a90 !important;
+  font-family: "VT323", "Noto Sans SC", monospace !important;
+  font-size: 0.85rem !important;
+}
+body:has(.dt-home) .md-tabs__link:hover,
+body:has(.dt-home) .md-tabs__item--active .md-tabs__link {
+  color: #00d4ff !important;
+  border-bottom-color: #00d4ff !important;
+}
+body:has(.dt-home) .md-search__input {
+  background: #131826 !important;
+  border: 1px solid #2a3548 !important;
+  color: #e0e6f0 !important;
+  font-family: "VT323", monospace !important;
+}
+body:has(.dt-home) .md-search__input::placeholder {
+  color: #6b7a90 !important;
+}
+body:has(.dt-home) .md-header__button {
+  color: #00d4ff !important;
+}
+body:has(.dt-home) .md-content__inner {
+  background: transparent;
 }
 
 /* ===== 19. Hero 区域 ===== */
@@ -635,6 +677,11 @@
   color: var(--dt-text);
   padding: 1em;
   border-radius: 4px;
+  position: relative;
+}
+.dt-home > * {
+  position: relative;
+  z-index: 2;
 }
 .dt-home .md-typeset,
 .dt-home p,
