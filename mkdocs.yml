@@ -65,7 +65,7 @@ extra_css:
 
 extra:
   stats:
-    pages: 40
+    pages: 43
     formulas: 1129
     images: 0
     code_blocks: 56
@@ -119,3 +119,7 @@ nav:
     - 8.1 D/A转换器: ch08/index.md
     - 8.2 A/D转换器: ch08/8-2.md
     - 本章总结: ch08/summary.md
+  - 附录:
+    - 附录首页: appendix/index.md
+    - 附录 A 常见组合逻辑芯片: appendix/combinational.md
+    - 附录 B 常见时序逻辑芯片: appendix/sequential.md
