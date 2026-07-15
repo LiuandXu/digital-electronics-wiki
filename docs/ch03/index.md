@@ -25,6 +25,7 @@
 \[
 \text{正逻辑：高电平} \rightarrow 1,\quad \text{低电平} \rightarrow 0
 \]
+
 \[
 \text{负逻辑：高电平} \rightarrow 0,\quad \text{低电平} \rightarrow 1
 \]
@@ -75,6 +76,7 @@ V_{NL} = V_{IL(max)} - V_{OL(max)}
 \[
 V_{NH} = 2.4V - 2.0V = 0.4V
 \]
+
 \[
 V_{NL} = 0.8V - 0.4V = 0.4V
 \]
@@ -84,6 +86,7 @@ V_{NL} = 0.8V - 0.4V = 0.4V
 \[
 V_{NH} = 4.4V - 3.5V = 0.9V
 \]
+
 \[
 V_{NL} = 1.5V - 0.5V = 1.0V
 \]
