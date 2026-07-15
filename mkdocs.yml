@@ -2,20 +2,28 @@ site_name: 数字电子技术 Wiki
 site_url: https://liuandxu.github.io/digital-electronics-wiki/
 repo_url: https://github.com/LiuandXu/digital-electronics-wiki
 repo_name: LiuandXu/digital-electronics-wiki
+site_description: 从数制码制到触发器、计数器，从分立元件到 FPGA —— 一站式数字电路学习手册
+site_author: LiuandXu
 
 theme:
   name: material
   language: zh
+  font:
+    text: Noto Sans SC
+    code: JetBrains Mono
+  icon:
+    logo: material/memory
+    repo: fontawesome/brands/github
   palette:
     - scheme: default
       primary: indigo
-      accent: indigo
+      accent: deep orange
       toggle:
         icon: material/brightness-7
         name: 切换到深色模式
     - scheme: slate
       primary: indigo
-      accent: indigo
+      accent: deep orange
       toggle:
         icon: material/brightness-4
         name: 切换到浅色模式
@@ -25,10 +33,12 @@ theme:
     - navigation.top
     - navigation.footer
     - navigation.instant
+    - navigation.prune
     - search.suggest
     - search.highlight
     - search.share
     - content.code.copy
+    - content.code.select
     - toc.follow
 
 plugins:
@@ -52,13 +62,16 @@ markdown_extensions:
   - pymdownx.details
   - attr_list
   - md_in_html
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - toc:
       permalink: true
 
 extra_javascript:
-  - javascripts/mathjax.js?v=3
+  - javascripts/mathjax.js?v=4
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
-  - javascripts/mermaid.js?v=3
+  - javascripts/mermaid.js?v=4
 
 extra_css:
   - stylesheets/extra.css
@@ -69,6 +82,9 @@ extra:
     formulas: 1129
     images: 0
     code_blocks: 56
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/LiuandXu/digital-electronics-wiki
 
 nav:
   - 首页: index.md

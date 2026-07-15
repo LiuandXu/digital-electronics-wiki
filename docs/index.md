@@ -1,75 +1,126 @@
+---
+hide:
+  - navigation
+  - toc
+---
+
 # 数字电子技术 Wiki
 
-**数字电子技术**（Digital Electronics）是电子信息类专业的核心基础课程，研究数字信号的表示、处理与实现方法。本 Wiki 基于课程课件系统整理，涵盖从逻辑代数到模数转换的完整知识体系。
+<div class="hero-section" markdown>
 
-> 共 **40** 个页面 | **1129** 个公式 | **56** 个代码块
+# 数字电子技术 Wiki
 
-<hr>
+<p class="hero-subtitle">从数制码制到触发器、计数器，从分立元件到 FPGA —— 一站式数字电路学习手册</p>
 
-## 概念词云
-
-<div class="sp-wordcloud" markdown>
-<span class="sp-xxxl">触发器</span>
-<span class="sp-xxl">组合逻辑</span>
-<span class="sp-xl">卡诺图</span>
-<span class="sp-xxl">时序逻辑</span>
-<span class="sp-l">门电路</span>
-<span class="sp-xxxl">计数器</span>
-<span class="sp-xl">TTL</span>
-<span class="sp-l">布尔代数</span>
-<span class="sp-xxl">编码器</span>
-<span class="sp-xl">寄存器</span>
-<span class="sp-l">译码器</span>
-<span class="sp-xxl">CMOS</span>
-<span class="sp-xl">Verilog</span>
-<span class="sp-l">555</span>
-<span class="sp-xxxl">DAC/ADC</span>
-<span class="sp-l">FPGA</span>
-<span class="sp-xl">竞争冒险</span>
-<span class="sp-xxl">ROM/RAM</span>
-<span class="sp-l">施密特</span>
-<span class="sp-xl">加法器</span>
-<span class="sp-l">MUX</span>
+<div class="hero-stats">
+<div class="hero-stat"><span class="stat-num">8</span><div class="stat-label">章节</div></div>
+<div class="hero-stat"><span class="stat-num">43</span><div class="stat-label">页面</div></div>
+<div class="hero-stat"><span class="stat-num">1129+</span><div class="stat-label">公式</div></div>
+<div class="hero-stat"><span class="stat-num">56+</span><div class="stat-label">代码块</div></div>
 </div>
 
-<hr>
+</div>
 
-## 知识脉络
+---
 
-```mermaid
-flowchart LR
-    A["数字逻辑概论"] --> B["逻辑代数"]
-    B --> C["逻辑门电路"]
-    C --> D["组合逻辑电路"]
-    C --> E["时序逻辑电路"]
-    E --> F["脉冲电路"]
-    D --> G["系统实现"]
-    E --> G
-    G --> H["存储器与PLD"]
-    F --> I["数模与模数转换"]
-    H --> I
-    I --> J["完整数字系统"]
-```
+## 章节导航
 
-<hr>
+<div class="chapter-grid">
+<a href="ch01/index.md" class="chapter-card">
+<div class="ch-num">第1章</div>
+<div class="ch-title">数字逻辑概论</div>
+<div class="ch-desc">数制与码制、EDA 技术概述、硬件开发环境</div>
+</a>
+<a href="ch02/index.md" class="chapter-card">
+<div class="ch-num">第2章</div>
+<div class="ch-title">逻辑代数</div>
+<div class="ch-desc">逻辑代数基础、公式化简、卡诺图、Verilog HDL</div>
+</a>
+<a href="ch03/index.md" class="chapter-card">
+<div class="ch-num">第3章</div>
+<div class="ch-title">逻辑门电路</div>
+<div class="ch-desc">TTL / CMOS 门电路、电气特性、接口电路</div>
+</a>
+<a href="ch04/index.md" class="chapter-card">
+<div class="ch-num">第4章</div>
+<div class="ch-title">组合逻辑电路</div>
+<div class="ch-desc">编码器、译码器、数据选择器、加法器、比较器</div>
+</a>
+<a href="ch05/index.md" class="chapter-card">
+<div class="ch-num">第5章</div>
+<div class="ch-title">时序逻辑电路</div>
+<div class="ch-desc">触发器、寄存器、计数器、分析与设计方法</div>
+</a>
+<a href="ch06/index.md" class="chapter-card">
+<div class="ch-num">第6章</div>
+<div class="ch-title">脉冲电路</div>
+<div class="ch-desc">555 定时器、施密特触发器、多谐振荡器</div>
+</a>
+<a href="ch07/index.md" class="chapter-card">
+<div class="ch-num">第7章</div>
+<div class="ch-title">存储器与PLD</div>
+<div class="ch-desc">ROM / RAM / Flash、GAL、FPGA、CPLD</div>
+</a>
+<a href="ch08/index.md" class="chapter-card">
+<div class="ch-num">第8章</div>
+<div class="ch-title">数模与模数转换</div>
+<div class="ch-desc">DAC 原理、ADC 原理、典型电路与参数</div>
+</a>
+<a href="appendix/index.md" class="chapter-card">
+<div class="ch-num">附录</div>
+<div class="ch-title">常用 IC 芯片速查</div>
+<div class="ch-desc">74148 / 74138 / 74LS74 / 74LS161 …</div>
+</a>
+</div>
 
-## 快速导航
+---
 
-| 主题 | 章节 | 核心内容 |
-|------|------|----------|
-| 基础概念 | [第1章 数字逻辑概论](ch01/index.md) | 模拟/数字信号、EDA 技术、FPGA 开发 |
-| 数学工具 | [第2章 逻辑代数](ch02/index.md) | 数制转换、布尔代数、卡诺图化简、Verilog |
-| 电路实现 | [第3章 逻辑门电路](ch03/index.md) | TTL、CMOS 门电路、接口电路 |
-| 组合逻辑 | [第4章 组合逻辑电路](ch04/index.md) | 编码/译码器、数据选择器、加法器、竞争冒险 |
-| 时序逻辑 | [第5章 时序逻辑电路](ch05/index.md) | 触发器、寄存器、计数器、分析与设计方法 |
-| 脉冲电路 | [第6章 脉冲电路](ch06/index.md) | 555 定时器、施密特触发器、多谐振荡器 |
-| 存储与可编程 | [第7章 存储器与PLD](ch07/index.md) | ROM/RAM、CPLD、FPGA |
-| 模拟接口 | [第8章 数模与模数转换](ch08/index.md) | DAC、ADC 原理与类型 |
+## 知识图谱
 
-<hr>
+<div class="sp-wordcloud">
+<span class="sp-xxxl">逻辑代数</span>
+<span class="sp-xxl">触发器</span>
+<span class="sp-xxl">计数器</span>
+<span class="sp-xl">卡诺图</span>
+<span class="sp-xl">TTL</span>
+<span class="sp-xl">CMOS</span>
+<span class="sp-l">编码器</span>
+<span class="sp-l">译码器</span>
+<span class="sp-l">Verilog</span>
+<span class="sp-l">状态机</span>
+<span class="sp-m">组合逻辑</span>
+<span class="sp-m">时序逻辑</span>
+<span class="sp-m">D触发器</span>
+<span class="sp-m">JK触发器</span>
+<span class="sp-m">555定时器</span>
+<span class="sp-m">加法器</span>
+<span class="sp-s">补码</span>
+<span class="sp-s">格雷码</span>
+<span class="sp-s">锁存器</span>
+<span class="sp-s">移位寄存器</span>
+<span class="sp-s">竞争与冒险</span>
+<span class="sp-s">DAC</span>
+<span class="sp-s">ADC</span>
+<span class="sp-s">FPGA</span>
+<span class="sp-s">ROM</span>
+<span class="sp-s">施密特</span>
+<span class="sp-s">多谐振荡器</span>
+<span class="sp-s">数值比较器</span>
+<span class="sp-s">数据选择器</span>
+<span class="sp-s">超前进位</span>
+</div>
 
-## 参考教材
+---
 
-- 康华光.《电子技术基础（数字部分）》（第六版）. 高等教育出版社
-- 阎石.《数字电子技术基础》（第六版）. 高等教育出版社
-- 课程课件及讲义
+## 关于本站
+
+- 内容基于《数字电子技术基础》教材，结合工程实践整理而成
+- 所有 Mermaid 图表、公式、代码均原创编写
+- 支持**亮色 / 深色**模式自动切换，点击右上角图标切换
+- 使用 `Ctrl + K` 快速搜索，`Ctrl + Shift + R` 强制刷新缓存
+
+!!! tip "学习建议"
+    1. 按章节顺序学习，每章先读正文再做总结
+    2. 重点关注各章的「易错点」提示框
+    3. 附录收录了常用 IC 芯片速查表，做题时随时查阅
+    4. Verilog HDL 部分需要配合实际 FPGA 开发板练习
