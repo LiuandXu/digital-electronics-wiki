@@ -15,18 +15,18 @@ theme:
     logo: material/memory
     repo: fontawesome/brands/github
   palette:
-    - scheme: default
-      primary: indigo
-      accent: deep orange
+    - scheme: slate
+      primary: custom
+      accent: custom
       toggle:
         icon: material/brightness-7
-        name: 切换到深色模式
-    - scheme: slate
-      primary: indigo
-      accent: deep orange
+        name: 切换到亮色模式
+    - scheme: default
+      primary: custom
+      accent: custom
       toggle:
         icon: material/brightness-4
-        name: 切换到浅色模式
+        name: 切换到深色模式
   features:
     - navigation.tabs
     - navigation.sections
