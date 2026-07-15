@@ -53,8 +53,8 @@ graph LR
 | \(V_{NL} = V_{IL(max)} - V_{OL(max)}\) | 低电平抗干扰容限 |
 | \(V_{OH(min)} \geq V_{IH(min)}\) | 接口电平匹配条件（高电平） |
 | \(V_{OL(max)} \leq V_{IL(max)}\) | 接口电平匹配条件（低电平） |
-| \(|I_{OH(max)}| \geq n \cdot |I_{IH(max)}|\) | 接口电流驱动条件（高电平） |
-| \(|I_{OL(max)}| \geq m \cdot |I_{IL(max)}|\) | 接口电流驱动条件（低电平） |
+| \(\lvert I_{OH(max)}\rvert \geq n \cdot \lvert I_{IH(max)}\rvert\) | 接口电流驱动条件（高电平） |
+| \(\lvert I_{OL(max)}\rvert \geq m \cdot \lvert I_{IL(max)}\rvert\) | 接口电流驱动条件（低电平） |
 | \(\tau_1 = R_D \cdot C_L\) | MOS管导通到截止的充电时间常数 |
 | \(\tau_2 = R_{DS} \cdot C_L\) | MOS管截止到导通的放电时间常数 |
 
