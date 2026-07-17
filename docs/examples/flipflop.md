@@ -8,6 +8,16 @@
 
 **题目**：用与非门构成的门控SR锁存器如图所示，设锁存器初始状态为Q=1，输入E和S、R的逻辑电平波形如图所示，画出输出端Q对应的波形。
 
+<figure markdown>
+  ![门控SR锁存器电路图](images/2022A_p4_1.jpeg){ width="400" }
+  <figcaption>图1：门控SR锁存器电路</figcaption>
+</figure>
+
+<figure markdown>
+  ![输入波形E、S、R](images/2022A_p4_2.jpeg){ width="500" }
+  <figcaption>图2：输入信号 E、S、R 波形</figcaption>
+</figure>
+
 **解答**：
 
 **步骤一：理解门控SR锁存器工作原理**
@@ -46,6 +56,11 @@
 
 **题目**：已知边沿JK触发器各输入端的电压波形如图所示，画出Q端对应的电压波形。触发器带异步置位端 \(\overline{S_D}\) 和异步复位端 \(\overline{R_D}\)，时钟CLK下降沿触发。初始状态 Q=0。
 
+<figure markdown>
+  ![JK触发器输入波形CLK、RD、J、K](images/2020A_p5_1.png){ width="500" }
+  <figcaption>图3：JK触发器输入波形</figcaption>
+</figure>
+
 **解答**：
 
 **步骤一：明确优先级**
@@ -82,11 +97,15 @@ Q^{n+1} = J\overline{Q^n} + \overline{K}Q^n
 
 **题目**：已知下边沿JK-FF组成电路（含开关S），分析逻辑功能，将Q_A、Q_B的波形补充完整。
 
-**电路结构**（文字描述）：
+<figure markdown>
+  ![JK触发器单脉冲发生器电路](images/2023B_p5_1.png){ width="450" }
+  <figcaption>图4：JK触发器单脉冲发生器电路</figcaption>
+</figure>
 
-- FF_A：J_A接VCC（高电平），K_A接VCC，时钟CP
-- FF_B：J_B接Q_A，K_B接VCC，时钟CP
-- 开关S接在FF_A的异步复位端
+<figure markdown>
+  ![JK触发器波形图J_A、CP、Q_A、Q_B](images/2023B_p5_2.png){ width="500" }
+  <figcaption>图5：输入波形 J_A、CP 及待画输出 Q_A、Q_B</figcaption>
+</figure>
 
 **解答**：
 

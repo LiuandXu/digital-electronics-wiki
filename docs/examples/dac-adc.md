@@ -146,6 +146,11 @@ T = (n + 1) \times T_{cp} = (7 + 1) \times \frac{1}{100\text{kHz}} = 8 \times 10
 
 **题目**：用数模转换器AD7520（10位倒T型DAC）、存储器RAM和十六进制计数器74LS161组成波形发生器电路。
 
+<figure markdown>
+  ![AD7520 DAC电路图](images/2020A_p6_1.png){ width="450" }
+  <figcaption>图1：AD7520 D/A转换电路</figcaption>
+</figure>
+
 (1) 定义 \(A_v = V_o / V_i\) 为增益，由输入数字量D（\(d_9 \sim d_0\)）决定，写出 \(A_v\) 的计算公式，并说明取值范围。
 
 (2) 设 \(V_i = -5V\)，RAM内部数据见表，画出 \(V_o\) 波形图。
@@ -208,9 +213,24 @@ graph LR
 
 **题目**：利用ROM构成的任意波形发生器电路。
 
+<figure markdown>
+  ![ROM波形发生器电路](images/2022A_p7_1.png){ width="550" }
+  <figcaption>图2：ROM+权电阻DAC构成的波形发生器</figcaption>
+</figure>
+
 (1) 写出输出 \(v_O\) 关于输入数字信号 \(D_3 D_2 D_1 D_0\) 的表达式
 
 (2) 若 \(R_A = R\)，\(V_{REF} = 1V\)，当ROM内容如表所示时，计算 \(v_O\) 的数值，画出输出波形。
+
+<figure markdown>
+  ![ROM数据表](images/2022A_p7_2.png){ width="500" }
+  <figcaption>图3：ROM中存储的波形数据表</figcaption>
+</figure>
+
+<figure markdown>
+  ![待画输出波形](images/2022A_p7_3.png){ width="500" }
+  <figcaption>图4：时钟CP与待画的输出 \(v_O\) 波形</figcaption>
+</figure>
 
 **解答**：
 

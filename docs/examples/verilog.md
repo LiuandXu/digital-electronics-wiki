@@ -55,6 +55,11 @@ Verilog中wire型用于组合逻辑的连续赋值，reg型用于时序逻辑的
 
 **题目**：使用Verilog语言设计10进制加法计数器，LD端口为低电平有效的异步置数控制端，Carry为进位输出端口，cp为时钟脉冲。补充代码。
 
+<figure markdown>
+  ![原题Verilog代码框架](images/2022A_p5_2.png){ width="400" }
+  <figcaption>图1：原题给出的Verilog代码框架（需补全）</figcaption>
+</figure>
+
 **解答**：
 
 ```verilog
@@ -168,6 +173,11 @@ endmodule
 ## 例题4：Verilog设计序列信号发生器（2020 A卷 综合三）
 
 **题目**：设计一个序列信号发生器电路，使之在一系列时钟信号作用下能周期性输出"0101110110"。用Verilog语言设计实现该序列信号发生器。
+
+<figure markdown>
+  ![原题Verilog代码框架](images/2020A_p7_2.png){ width="400" }
+  <figcaption>图1：原题给出的Verilog代码框架（需补全）</figcaption>
+</figure>
 
 **解答**：
 
