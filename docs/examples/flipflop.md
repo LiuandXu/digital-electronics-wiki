@@ -149,3 +149,52 @@ graph LR
 
 !!! tip "解题技巧"
     分析触发器电路时，关键是确定各触发器的时钟是否相同。如果共用同一时钟（同步电路），则所有触发器同时更新；如果时钟不同（异步电路），需逐级判断时钟有效性。
+
+---
+
+## 例题4：JK触发器电路分析（2022 A卷 选择7）
+
+**题目**：下图所示电路由JK触发器构成，\(J = \overline{Q}\)，\(K = \overline{A}\)，分析其逻辑功能。
+
+<figure markdown>
+  ![JK触发器电路](images/2022A_p3_1.jpeg){ width="350" }
+  <figcaption>图6：JK触发器电路（J接Q反，K接A反）</figcaption>
+</figure>
+
+**解答**：
+
+驱动方程：\(J = \overline{Q^n}\)，\(K = \overline{A}\)
+
+代入JK特征方程：
+
+\[
+Q^{n+1} = J\overline{Q^n} + \overline{K}Q^n = \overline{Q^n} \cdot \overline{Q^n} + A \cdot Q^n = \overline{Q^n} + AQ^n = 1 \quad (A=1)
+\]
+
+当 \(A=0\) 时：\(Q^{n+1} = \overline{Q^n}\)（T'翻转模式）
+
+**结论**：当 \(A=1\) 时输出恒为1；当 \(A=0\) 时每来一个CP翻转一次。
+
+---
+
+## 例题5：异步二进制减法计数器（2023 B卷 综合二）
+
+**题目**：分析下图所示异步时序电路，列出状态转换表，说明电路功能。
+
+<figure markdown>
+  ![异步二进制减法计数器](images/2023B_p2_2.png){ width="450" }
+  <figcaption>图7：三级下降沿JK触发器构成的异步计数器</figcaption>
+</figure>
+
+**解答**：
+
+**电路结构**：三个下降沿JK触发器，\(J=K=1\)（T'模式），级联方式为 \(CP_1 = \overline{Q_0}\)，\(CP_2 = \overline{Q_1}\)。
+
+**分析**：T'触发器每来一个CP翻转一次。由于高位时钟取自低位 \(\overline{Q}\)，构成**异步二进制减法计数器**。
+
+状态转换：\(000 \to 111 \to 110 \to 101 \to \cdots \to 001 \to 000\)
+
+!!! note "加法与减法计数器区别"
+    异步二进制计数器：
+    - **加法**：高位时钟取自低位 \(Q\) 端
+    - **减法**：高位时钟取自低位 \(\overline{Q}\) 端

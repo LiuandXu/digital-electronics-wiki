@@ -131,6 +131,11 @@ endmodule
 
 **题目2**（综合）：判断Verilog代码描述的电路结构是否正确，若正确，画出对应的逻辑电路图。
 
+<figure markdown>
+  ![半减器Verilog代码](images/2023A_p4_4.png){ width="400" }
+  <figcaption>图2：半减器模块 h_suber 的Verilog代码</figcaption>
+</figure>
+
 **解答**：
 
 **题目1分析**：
@@ -253,6 +258,86 @@ graph LR
     序列长度为M时：
     - 计数器法：模M计数器 + M选1数据选择器
     - 移位寄存器法：需要 \(\lceil \log_2 M \rceil\) 级触发器
+
+---
+
+## 例题5：Verilog连续赋值错误分析（2023 A卷 综合一）
+
+**题目**：下图给出两段Verilog代码，分析它们是否能正确实现三输入与门 \(y = a \cdot b \cdot c\)，如有错误请指出并改正。
+
+<figure markdown>
+  ![三输入与门电路图](images/2023A_p5_1.jpeg){ width="300" }
+  <figcaption>图2：三输入与门的目标电路（两个二输入与门级联）</figcaption>
+</figure>
+
+<figure markdown>
+  ![阻塞赋值版本](images/2023A_p4_2.png){ width="350" }
+  <figcaption>图3：代码1——always块内阻塞赋值</figcaption>
+</figure>
+
+<figure markdown>
+  ![连续赋值版本](images/2023A_p4_3.png){ width="350" }
+  <figcaption>图4：代码2——多条assign连续赋值</figcaption>
+</figure>
+
+**代码1**（always块阻塞赋值）：
+
+```verilog
+module and_block_assign(a, b, c, y);
+    input a, b, c;
+    output reg y;
+    always @*
+    begin
+        y = a;
+        y = y & b;
+        y = y & c;
+    end
+endmodule
+```
+
+**代码2**（多条assign）：
+
+```verilog
+module and_block_assign(a, b, c, y);
+    input a, b, c;
+    output y;
+    assign y = a;
+    assign y = y & b;
+    assign y = y & c;
+endmodule
+```
+
+**解答**：
+
+**代码1分析**：**正确**。
+
+always块内使用阻塞赋值（`=`），三条语句顺序执行：
+1. `y = a` → y获得a的值
+2. `y = y & b` → y = a & b
+3. `y = y & c` → y = a & b & c
+
+最终实现 \(y = a \cdot b \cdot c\)，功能正确。
+
+**代码2分析**：**错误**。
+
+使用三条`assign`语句对同一个wire型变量y进行多次驱动，这在Verilog中是**非法的多重驱动**（Multiple Drivers），会导致综合错误或不确定行为。
+
+**改正方法**：
+
+```verilog
+module and_block_assign(a, b, c, y);
+    input a, b, c;
+    output y;
+    assign y = a & b & c;  // 单条assign语句
+endmodule
+```
+
+!!! warning "assign与always赋值的区别"
+    | 赋值方式 | 语法 | 多次赋值同一变量 | 适用场景 |
+    |:---:|:---|:---:|:---|
+    | assign（连续赋值） | `assign y = expr;` | **非法**（多重驱动错误） | wire型变量 |
+    | always阻塞赋值 | `y = expr;` | **合法**（顺序执行，最后一条生效） | reg型变量 |
+    | always非阻塞赋值 | `y <= expr;` | **合法**（但结果不确定） | reg型时序逻辑 |
 
 ---
 

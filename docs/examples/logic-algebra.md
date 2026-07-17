@@ -416,3 +416,215 @@ A \odot A = 1, \quad A \odot A \odot A = A, \quad A \odot A \odot A \odot A = 1,
 
 !!! note "知识点"
     异或和同或是互补运算：\(A \odot B = \overline{A \oplus B}\)。偶数个相同变量异或为0，奇数个为变量本身；同或类似但偶数个为1。
+
+---
+
+## 例题7：门电路输入端电阻分析（2022 A卷 选择1）
+
+**题目**：下图(a)~(f)中，CMOS和TTL门电路输入端通过电阻接地，判断哪些电路能正常工作并写出输出表达式。
+
+<figure markdown>
+  ![六种门电路输入端接电阻配置](images/2022A_p1_1.jpeg){ width="550" }
+  <figcaption>图1：CMOS/TTL门电路输入端电阻接地配置 (a)~(f)</figcaption>
+</figure>
+
+**解答**：
+
+**关键参数**：
+
+TTL门电路输入端接电阻接地时：
+- \(R < R_{OFF} \approx 0.7k\Omega\) → 输入视为低电平"0"
+- \(R > R_{ON} \approx 2k\Omega\) → 输入视为高电平"1"
+
+CMOS门电路输入端接电阻接地时：
+- 输入阻抗极高，栅极电流近似为0
+- 电阻上无压降，输入端电平 ≈ 0V → 视为低电平"0"
+- **CMOS输入端不允许悬空**
+
+**逐图分析**：
+
+| 电路 | 类型 | 电阻值 | 等效输入 | 输出表达式 |
+|:---:|:---:|:---:|:---:|:---|
+| (a) | CMOS或非门 | 10kΩ | B=0 | \(F_1 = \overline{A+0} = \overline{A}\) |
+| (b) | TTL与非门 | 100Ω | B=0（\(R < R_{OFF}\)） | \(F_2 = \overline{A \cdot 0} = 1\) |
+| (c) | CMOS或非门 | 51Ω | B=0 | \(F_3 = \overline{A+0} = \overline{A}\) |
+| (d) | TTL与非门 | 100kΩ | B=1（\(R > R_{ON}\)） | \(F_4 = \overline{A \cdot 1} = \overline{A}\) |
+| (e) | CMOS与非门 | 10kΩ | B=0 | \(F_5 = \overline{A \cdot 0} = 1\) |
+| (f) | TTL组合电路 | 100kΩ | 见下 | \(F_6 = B\) |
+
+电路(f)分析：
+- 上方TTL与非门：一输入接高电平，另一输入悬空 → TTL悬空视为1 → 输出 \(\overline{1 \cdot 1} = 0\)
+- 下方TTL与非门：B输入，另一端经100kΩ接地 → 视为1 → 输出 \(\overline{B \cdot 1} = \overline{B}\)
+- 或非门：\(F_6 = \overline{0 + \overline{B}} = B\)
+
+!!! warning "CMOS与TTL输入端处理差异"
+    - **TTL**：输入端悬空等效于高电平"1"；接大电阻（>2kΩ）也等效于"1"
+    - **CMOS**：输入端**不允许悬空**（会导致栅极电荷积累损坏器件）；接任何电阻到地都等效于"0"
+
+---
+
+## 例题8：CMOS门电路识别（2022 A卷 选择2）
+
+**题目**：下图所示CMOS电路实现的逻辑功能是____。
+
+<figure markdown>
+  ![CMOS门电路原理图](images/2022A_p2_3.jpeg){ width="350" }
+  <figcaption>图2：CMOS门电路——PMOS串联、NMOS并联</figcaption>
+</figure>
+
+**解答**：
+
+**步骤一：识别晶体管类型**
+
+- 上拉网络（接VDD）：两个PMOS串联
+- 下拉网络（接GND）：两个NMOS并联
+
+**步骤二：分析导通条件**
+
+| A | B | PMOS上拉 | NMOS下拉 | Z |
+|:---:|:---:|:---:|:---:|:---:|
+| 0 | 0 | 两管均导通 → Z拉高 | 两管均截止 | 1 |
+| 0 | 1 | 一管截止 → 断 | 一管导通 → Z拉低 | 0 |
+| 1 | 0 | 一管截止 → 断 | 一管导通 → Z拉低 | 0 |
+| 1 | 1 | 两管均截止 → 断 | 两管均导通 → Z拉低 | 0 |
+
+**步骤三：结论**
+
+\[
+
+Z = \overline{A \cdot B}
+
+\]
+
+该CMOS电路实现的是 **与非门（NAND）** 功能。
+
+!!! tip "CMOS电路识别技巧"
+    | 上拉网络（PMOS） | 下拉网络（NMOS） | 逻辑功能 |
+    |:---:|:---:|:---|
+    | 串联 | 并联 | 与非门 NAND |
+    | 并联 | 串联 | 或非门 NOR |
+    | 串联 | 串联 | 与门 AND（需加反相器） |
+    | 并联 | 并联 | 或门 OR（需加反相器） |
+
+---
+
+## 例题9：CMOS/TTL输入端悬空分析（2023 B卷 综合一）
+
+**题目**：下图给出两种门电路输入端的处理方式，判断输出逻辑值。
+
+<figure markdown>
+  ![CMOS和TTL输入端选择](images/2023B_p2_1.png){ width="450" }
+  <figcaption>图3：CMOS与TTL门电路输入端悬空/接电阻的对比</figcaption>
+</figure>
+
+**解答**：
+
+| 电路类型 | 输入端处理 | 等效逻辑值 | 原因 |
+|:---:|:---|:---:|:---|
+| TTL与非门 | 悬空 | 1 | TTL输入发射结不导通，无电流流出 |
+| TTL或非门 | 悬空 | 1 | 同上，悬空等效高电平 |
+| CMOS与非门 | 悬空 | **禁止** | CMOS输入阻抗极高，悬空会积累电荷损坏器件 |
+| CMOS或非门 | 接10kΩ到地 | 0 | CMOS栅极无电流，电阻无压降，输入≈0V |
+
+!!! warning "CMOS输入端绝对不能悬空"
+    CMOS器件输入端悬空时，栅极电容上的电荷无法泄放，会导致：
+    1. 逻辑状态不确定
+    2. PMOS和NMOS同时导通，产生极大穿透电流
+    3. 长时间可能烧毁器件
+    
+    **必须将不用的CMOS输入端接VDD或GND**。
+
+---
+
+## 例题10：NPN反相器电路（2022 A卷 选择3）
+
+**题目**：下图给出NPN三极管构成的反相器电路，分析其工作状态。
+
+<figure markdown>
+  ![NPN反相器电路](images/2022A_p3_2.jpeg){ width="350" }
+  <figcaption>图4：NPN三极管反相器（共射极电路）</figcaption>
+</figure>
+
+**解答**：
+
+**工作原理**：
+
+- 输入 \(V_I = 0\)（低电平）：三极管截止，\(V_O = V_{CC}\)（高电平）
+- 输入 \(V_I = V_{IH}\)（高电平）：三极管饱和导通，\(V_O = V_{CE(sat)} \approx 0.3V\)（低电平）
+
+实现逻辑非功能：\(V_O = \overline{V_I}\)
+
+**关键参数**：
+- 饱和条件：\(I_B > I_{BS} = \frac{V_{CC}}{\beta R_C}\)
+- 深饱和时 \(V_{CE(sat)} \approx 0.3V\)
+
+---
+
+## 例题11：与门波形图分析（2022 A卷 填空9）
+
+**题目**：下图给出与门输入A、B和输出Y的波形，补全输出Y的波形。
+
+<figure markdown>
+  ![与门波形图](images/2022A_p2_2.jpeg){ width="400" }
+  <figcaption>图5：与门输入A、B波形及待画的输出Y</figcaption>
+</figure>
+
+**解答**：
+
+与门逻辑：\(Y = A \cdot B\)
+
+逐段分析：
+- A=1, B=1 → Y=1
+- A=1, B=0 → Y=0
+- A=0, B=1 → Y=0
+- A=0, B=0 → Y=0
+
+只有两个输入同时为1时输出才为1。
+
+---
+
+## 例题12：TTL门电路输入端等效分析（2020 A卷 填空2）
+
+**题目**：下图(a)~(e)给出五种TTL/CMOS门电路输入端的处理方式，分别判断输入端的等效逻辑电平。
+
+<figure markdown>
+  ![TTL与非门输入悬空](images/2020A_p2_1.png){ width="200" }
+  <figcaption>图6(a)：TTL与非门——输入端悬空</figcaption>
+</figure>
+
+<figure markdown>
+  ![TTL与非门接51Ω电阻](images/2020A_p2_2.png){ width="200" }
+  <figcaption>图6(b)：TTL与非门——输入端接51Ω到地</figcaption>
+</figure>
+
+<figure markdown>
+  ![TTL或非门接10kΩ电阻](images/2020A_p2_3.png){ width="200" }
+  <figcaption>图6(c)：TTL或非门——输入端接10kΩ到地</figcaption>
+</figure>
+
+<figure markdown>
+  ![TTL施密特接51kΩ电阻](images/2020A_p2_4.png){ width="200" }
+  <figcaption>图6(d)：TTL施密特——输入端接51kΩ到地</figcaption>
+</figure>
+
+<figure markdown>
+  ![IC芯片封装外观](images/2020A_p2_5.jpeg){ width="250" }
+  <figcaption>图6(e)：DIP封装IC芯片外观</figcaption>
+</figure>
+
+**解答**：
+
+| 电路 | 输入端处理 | 电阻与 \(R_{OFF}/R_{ON}\) 关系 | 等效逻辑 | 输出 |
+|:---:|:---|:---|:---:|:---|
+| (a) | 悬空 | — | 1 | \(Y = \overline{1 \cdot 1} = 0\) |
+| (b) | 51Ω到地 | \(R < R_{OFF}\)（0.7kΩ） | 0 | \(Y = \overline{1 \cdot 0} = 1\) |
+| (c) | 10kΩ到地 | \(R > R_{ON}\)（2kΩ） | 1 | \(Y = \overline{0+1} = 0\) |
+| (d) | 51kΩ到地 | \(R > R_{ON}\)（2kΩ） | 1 | \(Y = \overline{1 \cdot 1} = 0\) |
+
+!!! warning "TTL输入端电阻判定"
+    TTL门电路输入端接电阻到地时：
+    - \(R < R_{OFF} \approx 0.7k\Omega\) → 等效低电平"0"
+    - \(R > R_{ON} \approx 2k\Omega\) → 等效高电平"1"
+    - 悬空 → 等效高电平"1"
+    
+    关键阈值：\(R_{OFF} \approx 0.7k\Omega\)，\(R_{ON} \approx 2k\Omega\)，之间为禁止区。
