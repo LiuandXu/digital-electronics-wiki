@@ -5,6 +5,7 @@
 /* ============================================================
    数字电子技术 Wiki — 自定义 UI 样式
    基于 MkDocs Material 主题深度定制
+   支持亮色 / 暗色双模式切换
    ============================================================ */
 
 /* ===== 1. 字体栈（全站像素风） ===== */
@@ -15,76 +16,170 @@
     "Cascadia Code", "Consolas", "Courier New", monospace;
 }
 
-/* ===== 2. 亮色模式配色（深色科技风 — 两种模式均强制深色） ===== */
-[data-md-color-scheme="default"] {
-  --md-primary-fg-color: #0a0e1a;
-  --md-primary-fg-color--light: #131826;
-  --md-primary-fg-color--dark: #050810;
-  --md-primary-bg-color: #0a0e1a;
-  --md-accent-fg-color: #00d4ff;
-  --md-accent-fg-color--transparent: rgba(0, 212, 255, 0.1);
-  --md-default-bg-color: #0a0e1a;
-  --md-default-fg-color: #e0e6f0;
-  --md-default-fg-color--light: #6b7a90;
-  --md-default-fg-color--lighter: #4a5a70;
-  --md-default-fg-color--lightest: rgba(0, 212, 255, 0.05);
-  --md-code-bg-color: #131826;
-  --md-code-fg-color: #00ff88;
-  --md-typeset-a-color: #00d4ff;
-  --md-typeset-color: #e0e6f0;
-  --md-typeset-table-color: #e0e6f0;
-}
-
-/* ===== 3. 深色模式配色（深色科技风） ===== */
+/* ===== 2. 语义颜色变量 — 暗色模式（默认） ===== */
+:root,
 [data-md-color-scheme="slate"] {
-  --md-primary-fg-color: #0a0e1a;
-  --md-primary-fg-color--light: #131826;
-  --md-primary-fg-color--dark: #050810;
-  --md-primary-bg-color: #0a0e1a;
-  --md-accent-fg-color: #00d4ff;
-  --md-accent-fg-color--transparent: rgba(0, 212, 255, 0.1);
-  --md-default-bg-color: #0a0e1a;
-  --md-default-fg-color: #e0e6f0;
-  --md-default-fg-color--light: #6b7a90;
-  --md-default-fg-color--lighter: #4a5a70;
-  --md-default-fg-color--lightest: rgba(0, 212, 255, 0.05);
-  --md-code-bg-color: #131826;
-  --md-code-fg-color: #00ff88;
-  --md-typeset-a-color: #00d4ff;
-  --md-typeset-color: #e0e6f0;
-  --md-typeset-table-color: #e0e6f0;
+  --wiki-bg:           #0a0e1a;
+  --wiki-bg-card:      #131826;
+  --wiki-bg-header:    #0a0e1a;
+  --wiki-bg-tabs:      #050810;
+  --wiki-bg-code:      #0d1220;
+  --wiki-bg-inline:    #131826;
+  --wiki-bg-search:    #131826;
+
+  --wiki-text:         #e0e6f0;
+  --wiki-text-muted:   #6b7a90;
+
+  --wiki-accent:       #00d4ff;
+  --wiki-accent2:      #00ff88;
+  --wiki-accent-trans: rgba(0, 212, 255, 0.1);
+  --wiki-accent-glow:  rgba(0, 212, 255, 0.3);
+
+  --wiki-border:       #2a3548;
+  --wiki-border-light: rgba(0, 212, 255, 0.15);
+  --wiki-border-faint: rgba(0, 212, 255, 0.08);
+
+  --wiki-link:         #00d4ff;
+  --wiki-link-hover:   #00ff88;
+
+  --wiki-table-header-bg:   #131826;
+  --wiki-table-header-fg:   #00d4ff;
+  --wiki-table-row-alt:     rgba(0, 212, 255, 0.03);
+  --wiki-table-row-hover:   rgba(0, 212, 255, 0.08);
+
+  --wiki-admonition-bg:     #131826;
+
+  --wiki-shadow:            rgba(0, 212, 255, 0.1);
+  --wiki-shadow-faint:      rgba(0, 212, 255, 0.06);
+
+  --wiki-scrollbar-track:   #0a0e1a;
+  --wiki-scrollbar-thumb:   rgba(0, 212, 255, 0.2);
+  --wiki-scrollbar-hover:   #00d4ff;
+
+  --wiki-hero-grad-from:    #0d1220;
+  --wiki-hero-grad-to:      #0a0e1a;
+  --wiki-grid-line:         rgba(0, 212, 255, 0.06);
+
+  --wiki-footer-bg:         #050810;
 }
 
-/* ===== 4. 顶部导航栏（深色科技风） ===== */
+/* ===== 3. 语义颜色变量 — 亮色模式 ===== */
+[data-md-color-scheme="default"] {
+  --wiki-bg:           #ffffff;
+  --wiki-bg-card:      #f6f8fa;
+  --wiki-bg-header:    #ffffff;
+  --wiki-bg-tabs:      #f8fafc;
+  --wiki-bg-code:      #f6f8fa;
+  --wiki-bg-inline:    #eff1f3;
+  --wiki-bg-search:    #f6f8fa;
+
+  --wiki-text:         #1f2328;
+  --wiki-text-muted:   #59636e;
+
+  --wiki-accent:       #0969da;
+  --wiki-accent2:      #059485;
+  --wiki-accent-trans: rgba(9, 105, 218, 0.08);
+  --wiki-accent-glow:  rgba(9, 105, 218, 0.15);
+
+  --wiki-border:       #d0d7de;
+  --wiki-border-light: rgba(9, 105, 218, 0.12);
+  --wiki-border-faint: rgba(9, 105, 218, 0.06);
+
+  --wiki-link:         #0969da;
+  --wiki-link-hover:   #059485;
+
+  --wiki-table-header-bg:   #f0f3f6;
+  --wiki-table-header-fg:   #1f2328;
+  --wiki-table-row-alt:     rgba(9, 105, 218, 0.02);
+  --wiki-table-row-hover:   rgba(9, 105, 218, 0.06);
+
+  --wiki-admonition-bg:     #f6f8fa;
+
+  --wiki-shadow:            rgba(9, 105, 218, 0.08);
+  --wiki-shadow-faint:      rgba(9, 105, 218, 0.04);
+
+  --wiki-scrollbar-track:   #f0f3f6;
+  --wiki-scrollbar-thumb:   rgba(9, 105, 218, 0.2);
+  --wiki-scrollbar-hover:   #0969da;
+
+  --wiki-hero-grad-from:    #f0f7ff;
+  --wiki-hero-grad-to:      #ffffff;
+  --wiki-grid-line:         rgba(9, 105, 218, 0.04);
+
+  --wiki-footer-bg:         #f8fafc;
+}
+
+/* ===== 4. Material 主题变量映射 ===== */
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: var(--wiki-bg);
+  --md-primary-fg-color--light: var(--wiki-bg-card);
+  --md-primary-fg-color--dark: #050810;
+  --md-primary-bg-color: var(--wiki-bg);
+  --md-accent-fg-color: var(--wiki-accent);
+  --md-accent-fg-color--transparent: var(--wiki-accent-trans);
+  --md-default-bg-color: var(--wiki-bg);
+  --md-default-fg-color: var(--wiki-text);
+  --md-default-fg-color--light: var(--wiki-text-muted);
+  --md-default-fg-color--lighter: #4a5a70;
+  --md-default-fg-color--lightest: var(--wiki-accent-trans);
+  --md-code-bg-color: var(--wiki-bg-inline);
+  --md-code-fg-color: var(--wiki-accent2);
+  --md-typeset-a-color: var(--wiki-link);
+  --md-typeset-color: var(--wiki-text);
+  --md-typeset-table-color: var(--wiki-text);
+}
+
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color: var(--wiki-bg);
+  --md-primary-fg-color--light: var(--wiki-bg-card);
+  --md-primary-fg-color--dark: #e8ecf0;
+  --md-primary-bg-color: var(--wiki-bg);
+  --md-accent-fg-color: var(--wiki-accent);
+  --md-accent-fg-color--transparent: var(--wiki-accent-trans);
+  --md-default-bg-color: var(--wiki-bg);
+  --md-default-fg-color: var(--wiki-text);
+  --md-default-fg-color--light: var(--wiki-text-muted);
+  --md-default-fg-color--lighter: #8c959f;
+  --md-default-fg-color--lightest: var(--wiki-accent-trans);
+  --md-code-bg-color: var(--wiki-bg-inline);
+  --md-code-fg-color: var(--wiki-accent2);
+  --md-typeset-a-color: var(--wiki-link);
+  --md-typeset-color: var(--wiki-text);
+  --md-typeset-table-color: var(--wiki-text);
+}
+
+/* ===== 5. 顶部导航栏 ===== */
 .md-header {
-  background: #0a0e1a !important;
-  box-shadow: 0 1px 0 rgba(0, 212, 255, 0.2) !important;
-  transition: box-shadow 0.3s ease;
+  background: var(--wiki-bg-header) !important;
+  box-shadow: 0 1px 0 var(--wiki-border-light) !important;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 .md-header--shadow {
-  box-shadow: 0 1px 0 rgba(0, 212, 255, 0.3) !important;
+  box-shadow: 0 1px 0 var(--wiki-border-light) !important;
 }
 .md-header__title {
-  color: #00d4ff !important;
+  color: var(--wiki-accent) !important;
   font-family: "Press Start 2P", "VT323", monospace !important;
   font-size: 0.75rem !important;
-  text-shadow: 0 0 5px rgba(0, 212, 255, 0.3);
+}
+[data-md-color-scheme="slate"] .md-header__title {
+  text-shadow: 0 0 5px var(--wiki-accent-glow);
 }
 .md-header__button {
-  color: #00d4ff !important;
+  color: var(--wiki-accent) !important;
 }
 
 /* 顶部标签栏 */
 .md-tabs {
-  background: #050810 !important;
-  border-bottom: 1px solid rgba(0, 212, 255, 0.15);
+  background: var(--wiki-bg-tabs) !important;
+  border-bottom: 1px solid var(--wiki-border-light);
 }
 .md-tabs__link {
   font-size: 0.8rem;
   font-weight: 400;
   letter-spacing: 0.3px;
   opacity: 0.7;
-  color: #6b7a90 !important;
+  color: var(--wiki-text-muted) !important;
   font-family: "VT323", "Noto Sans SC", monospace;
   transition: opacity 0.2s ease, border-bottom 0.2s ease, color 0.2s ease;
   border-bottom: 2px solid transparent;
@@ -92,20 +187,20 @@
 }
 .md-tabs__link:hover {
   opacity: 1;
-  color: #00d4ff !important;
-  border-bottom-color: #00d4ff;
+  color: var(--wiki-accent) !important;
+  border-bottom-color: var(--wiki-accent);
 }
 .md-tabs__item--active .md-tabs__link {
   opacity: 1;
-  color: #00d4ff !important;
-  border-bottom-color: #00d4ff;
+  color: var(--wiki-accent) !important;
+  border-bottom-color: var(--wiki-accent);
 }
 .md-tabs__item {
   padding-left: 0.2rem;
   padding-right: 0.2rem;
 }
 
-/* ===== 5. 侧边栏 ===== */
+/* ===== 6. 侧边栏 ===== */
 .md-nav--primary .md-nav__item {
   margin: 2px 0;
 }
@@ -114,12 +209,15 @@
   padding: 0.4rem 0.6rem;
   transition: background-color 0.2s ease, color 0.2s ease;
   font-size: 0.75rem;
+  color: var(--wiki-text-muted);
+  font-family: "VT323", "Noto Sans SC", monospace;
 }
 .md-nav--primary .md-nav__link:hover {
-  background: var(--md-accent-fg-color--transparent);
+  background: var(--wiki-accent-trans);
+  color: var(--wiki-accent);
 }
 .md-nav--primary .md-nav__item--active > .md-nav__link {
-  color: var(--md-accent-fg-color);
+  color: var(--wiki-accent);
   font-weight: 600;
 }
 
@@ -129,16 +227,27 @@
   display: none;
 }
 
-/* ===== 6. 正文排版 ===== */
+.md-sidebar {
+  background: transparent;
+}
+.md-nav--secondary .md-nav__link {
+  color: var(--wiki-text-muted);
+  font-family: "VT323", monospace;
+}
+.md-nav--secondary .md-nav__link:hover {
+  color: var(--wiki-accent);
+}
+
+/* ===== 7. 正文排版 ===== */
 .md-typeset {
   font-size: 0.9rem;
   line-height: 1.75;
-  color: #e0e6f0;
+  color: var(--wiki-text);
   font-family: "VT323", "ZCOOL KuaiLe", "Noto Sans SC", monospace;
 }
 .md-typeset h1 {
   font-weight: 700;
-  border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+  border-bottom: 1px solid var(--wiki-border-light);
   padding-bottom: 0.3em;
   margin-bottom: 0.8em;
 }
@@ -146,92 +255,91 @@
   font-weight: 700;
   margin-top: 2em;
   padding-bottom: 0.2em;
-  border-bottom: 1px solid rgba(0, 212, 255, 0.15);
+  border-bottom: 1px solid var(--wiki-border-light);
 }
 .md-typeset h3 {
   font-weight: 700;
 }
 
-/* ===== 10. 链接和引用 ===== */
+/* ===== 8. 链接和引用 ===== */
 .md-typeset a {
-  color: #00d4ff;
+  color: var(--wiki-link);
   text-decoration: none;
   border-bottom: 1px solid transparent;
   transition: border-color 0.2s ease, color 0.2s ease;
 }
 .md-typeset a:hover {
-  border-bottom-color: #00ff88;
-  color: #00ff88;
+  border-bottom-color: var(--wiki-link-hover);
+  color: var(--wiki-link-hover);
 }
 .md-typeset blockquote {
-  border-left: 3px solid #00d4ff;
-  background: rgba(0, 212, 255, 0.05);
+  border-left: 3px solid var(--wiki-accent);
+  background: var(--wiki-accent-trans);
   border-radius: 0 2px 2px 0;
   padding: 0.5em 1em;
-  color: #e0e6f0;
+  color: var(--wiki-text);
 }
 
-/* ===== 7. 表格 ===== */
+/* ===== 9. 表格 ===== */
 .md-typeset table:not([class]) {
-  border-radius: 0;
+  border-radius: 6px;
   overflow: hidden;
-  box-shadow: 0 0 8px rgba(0, 212, 255, 0.1);
-  border: 1px solid rgba(0, 212, 255, 0.2);
+  box-shadow: 0 0 8px var(--wiki-shadow);
+  border: 1px solid var(--wiki-border-light);
   font-size: 0.85rem;
 }
 .md-typeset table:not([class]) th {
-  background: #131826;
-  color: #00d4ff;
+  background: var(--wiki-table-header-bg);
+  color: var(--wiki-table-header-fg);
   font-weight: 700;
   padding: 0.6em 0.8em;
-  border-bottom: 1px solid rgba(0, 212, 255, 0.2);
   border: none;
   font-family: "VT323", "Noto Sans SC", monospace;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
 }
 .md-typeset table:not([class]) td {
   padding: 0.5em 0.8em;
-  border-bottom: 1px solid rgba(0, 212, 255, 0.08);
-  color: #e0e6f0;
+  border-bottom: 1px solid var(--wiki-border-faint);
+  color: var(--wiki-text);
 }
 .md-typeset table:not([class]) tr:nth-child(even) {
-  background: rgba(0, 212, 255, 0.03);
+  background: var(--wiki-table-row-alt);
 }
 .md-typeset table:not([class]) tr:hover {
-  background: rgba(0, 212, 255, 0.08);
+  background: var(--wiki-table-row-hover);
 }
 
-/* ===== 8. 代码块 ===== */
+/* ===== 10. 代码块 ===== */
 .md-typeset code {
-  background: #131826;
-  color: #00ff88;
-  border-radius: 0;
+  background: var(--wiki-bg-inline);
+  color: var(--wiki-accent2);
+  border-radius: 4px;
   padding: 0.1em 0.35em;
-  font-size: 0.85em;
-  border: 1px solid rgba(0, 212, 255, 0.15);
-  font-family: "Press Start 2P", "JetBrains Mono", monospace;
   font-size: 0.7em;
+  border: 1px solid var(--wiki-border-faint);
+  font-family: "Press Start 2P", "JetBrains Mono", monospace;
 }
 .md-typeset pre > code {
-  border-radius: 0;
-  border: 1px solid rgba(0, 212, 255, 0.2);
-  background: #0d1220;
+  border-radius: 4px;
+  border: 1px solid var(--wiki-border-light);
+  background: var(--wiki-bg-code);
+}
+[data-md-color-scheme="slate"] .md-typeset pre > code {
   text-shadow: 0 0 3px rgba(0, 255, 136, 0.2);
 }
 .md-typeset pre {
   margin: 1em 0;
-  box-shadow: 0 0 8px rgba(0, 212, 255, 0.08);
+  box-shadow: 0 0 8px var(--wiki-shadow-faint);
 }
 
-/* ===== 9. Admonition ===== */
+/* ===== 11. Admonition ===== */
 .md-typeset .admonition,
 .md-typeset details {
-  border-radius: 0;
-  border-left: 3px solid #00d4ff;
-  box-shadow: 0 0 8px rgba(0, 212, 255, 0.06);
+  border-radius: 6px;
+  border-left: 3px solid var(--wiki-accent);
+  box-shadow: 0 0 8px var(--wiki-shadow-faint);
   overflow: hidden;
-  background: #131826;
+  background: var(--wiki-admonition-bg);
 }
 .md-typeset .admonition-title,
 .md-typeset summary {
@@ -248,18 +356,22 @@
   color: #ff9a6b;
 }
 .md-typeset .admonition-note {
-  border-left-color: #00d4ff;
+  border-left-color: var(--wiki-accent);
 }
 .md-typeset .admonition-note > .admonition-title {
-  background: rgba(0, 212, 255, 0.1);
-  color: #00d4ff;
+  background: var(--wiki-accent-trans);
+  color: var(--wiki-accent);
 }
 .md-typeset .admonition-tip {
-  border-left-color: #00ff88;
+  border-left-color: var(--wiki-accent2);
 }
 .md-typeset .admonition-tip > .admonition-title {
   background: rgba(0, 255, 136, 0.1);
-  color: #00ff88;
+  color: var(--wiki-accent2);
+}
+[data-md-color-scheme="default"] .md-typeset .admonition-tip > .admonition-title {
+  background: rgba(5, 148, 133, 0.1);
+  color: var(--wiki-accent2);
 }
 .md-typeset .admonition-danger {
   border-left-color: #ff4444;
@@ -269,27 +381,25 @@
   color: #ff4444;
 }
 
-/* ===== 11. 搜索框（已合并到 18a） ===== */
-
 /* ===== 12. 返回顶部按钮 ===== */
 .md-top {
   border-radius: 50%;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 .md-top:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
 }
 
 /* ===== 13. Mermaid 图表 ===== */
 .mermaid {
-  border-radius: 0;
+  border-radius: 6px;
   padding: 1em;
   margin: 1em 0;
-  background: #131826;
-  border: 1px solid rgba(0, 212, 255, 0.15);
-  box-shadow: 0 0 8px rgba(0, 212, 255, 0.06);
+  background: var(--wiki-bg-card);
+  border: 1px solid var(--wiki-border-light);
+  box-shadow: 0 0 8px var(--wiki-shadow-faint);
 }
 
 /* ===== 14. 公式块 ===== */
@@ -309,15 +419,17 @@
   height: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #0a0e1a;
+  background: var(--wiki-scrollbar-track);
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(0, 212, 255, 0.2);
+  background: var(--wiki-scrollbar-thumb);
   border-radius: 0;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #00d4ff;
-  box-shadow: 0 0 6px rgba(0, 212, 255, 0.3);
+  background: var(--wiki-scrollbar-hover);
+}
+[data-md-color-scheme="slate"] ::-webkit-scrollbar-thumb:hover {
+  box-shadow: 0 0 6px var(--wiki-accent-glow);
 }
 
 /* ===== 16. 过渡动画 ===== */
@@ -329,20 +441,46 @@
   transition: all 0.2s ease;
 }
 
-/* ===== 17. 深色科技风首页 — 基础变量 ===== */
-.dt-home {
-  --dt-bg: #0a0e1a;
-  --dt-card: #131826;
-  --dt-border: #2a3548;
-  --dt-cyan: #00d4ff;
-  --dt-green: #00ff88;
-  --dt-text: #e0e6f0;
-  --dt-muted: #6b7a90;
-  font-family: "VT323", "ZCOOL KuaiLe", "Noto Sans SC", monospace;
+/* ===== 17. 搜索框 ===== */
+.md-search__input {
+  background: var(--wiki-bg-search) !important;
+  border: 1px solid var(--wiki-border) !important;
+  color: var(--wiki-text) !important;
+  font-family: "VT323", monospace !important;
+  border-radius: 6px !important;
+}
+.md-search__input::placeholder {
+  color: var(--wiki-text-muted) !important;
+}
+.md-search__icon {
+  color: var(--wiki-accent) !important;
 }
 
-/* ===== 18. CRT 扫描线效果（全屏覆盖） ===== */
-body::before {
+/* ===== 18. 正文标题颜色 ===== */
+[data-md-color-scheme="slate"] .md-typeset h1 {
+  color: var(--wiki-accent) !important;
+  text-shadow: 0 0 5px var(--wiki-accent-glow);
+  font-family: "Press Start 2P", "ZCOOL KuaiLe", monospace !important;
+}
+[data-md-color-scheme="slate"] .md-typeset h2 {
+  color: var(--wiki-accent) !important;
+}
+[data-md-color-scheme="slate"] .md-typeset h3 {
+  color: var(--wiki-accent2) !important;
+}
+[data-md-color-scheme="default"] .md-typeset h1 {
+  color: var(--wiki-text) !important;
+  font-family: "Press Start 2P", "ZCOOL KuaiLe", monospace !important;
+}
+[data-md-color-scheme="default"] .md-typeset h2 {
+  color: var(--wiki-accent) !important;
+}
+[data-md-color-scheme="default"] .md-typeset h3 {
+  color: var(--wiki-accent2) !important;
+}
+
+/* ===== 19. CRT 扫描线效果 — 仅暗色模式 ===== */
+[data-md-color-scheme="slate"] body::before {
   content: '';
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
@@ -357,64 +495,24 @@ body::before {
   z-index: 9999;
 }
 
-/* ===== 18a. 搜索框深色化 ===== */
-.md-search__input {
-  background: #131826 !important;
-  border: 1px solid #2a3548 !important;
-  color: #e0e6f0 !important;
-  font-family: "VT323", monospace !important;
-  border-radius: 0 !important;
-}
-.md-search__input::placeholder {
-  color: #6b7a90 !important;
-}
-.md-search__icon {
-  color: #00d4ff !important;
+/* ===== 20. 首页 — 基础变量 ===== */
+.dt-home {
+  --dt-bg: var(--wiki-bg);
+  --dt-card: var(--wiki-bg-card);
+  --dt-border: var(--wiki-border);
+  --dt-cyan: var(--wiki-accent);
+  --dt-green: var(--wiki-accent2);
+  --dt-text: var(--wiki-text);
+  --dt-muted: var(--wiki-text-muted);
+  font-family: "VT323", "ZCOOL KuaiLe", "Noto Sans SC", monospace;
 }
 
-/* ===== 18b. 侧边栏深色化 ===== */
-.md-sidebar {
-  background: transparent;
-}
-.md-nav--primary .md-nav__link {
-  color: #6b7a90;
-  font-family: "VT323", "Noto Sans SC", monospace;
-}
-.md-nav--primary .md-nav__link:hover {
-  color: #00d4ff;
-}
-.md-nav--primary .md-nav__item--active > .md-nav__link {
-  color: #00d4ff;
-}
-.md-nav--secondary .md-nav__link {
-  color: #6b7a90;
-  font-family: "VT323", monospace;
-}
-.md-nav--secondary .md-nav__link:hover {
-  color: #00d4ff;
-}
-
-/* ===== 18c. 正文标题发光效果 ===== */
-.md-typeset h1 {
-  color: #00d4ff !important;
-  text-shadow: 0 0 5px rgba(0, 212, 255, 0.3);
-  font-family: "Press Start 2P", "ZCOOL KuaiLe", monospace !important;
-}
-.md-typeset h2 {
-  color: #00d4ff !important;
-  border-bottom-color: rgba(0, 212, 255, 0.2) !important;
-}
-.md-typeset h3 {
-  color: #00ff88 !important;
-}
-
-/* ===== 19. Hero 区域 ===== */
+/* ===== 21. Hero 区域 ===== */
 .dt-hero {
   text-align: center;
   padding: 3em 1.5em 2.5em;
   border-radius: 4px;
-  background:
-    linear-gradient(135deg, #0d1220 0%, #0a0e1a 100%);
+  background: linear-gradient(135deg, var(--wiki-hero-grad-from) 0%, var(--wiki-hero-grad-to) 100%);
   color: var(--dt-text);
   margin-bottom: 2em;
   border: 1px solid var(--dt-border);
@@ -427,8 +525,8 @@ body::before {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
   background-image:
-    linear-gradient(rgba(0, 212, 255, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 212, 255, 0.06) 1px, transparent 1px);
+    linear-gradient(var(--wiki-grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--wiki-grid-line) 1px, transparent 1px);
   background-size: 44px 44px;
   animation: dt-grid-move 8s linear infinite;
   pointer-events: none;
@@ -444,12 +542,14 @@ body::before {
   font-family: "Press Start 2P", "ZCOOL KuaiLe", monospace;
   font-size: 1.8rem;
   font-weight: 700;
+  margin-bottom: 0.4em;
+  letter-spacing: 2px;
+}
+[data-md-color-scheme="slate"] .dt-hero h1 {
   text-shadow:
     0 0 5px rgba(0, 212, 255, 0.5),
     0 0 15px rgba(0, 212, 255, 0.3),
     0 0 30px rgba(0, 212, 255, 0.15);
-  margin-bottom: 0.4em;
-  letter-spacing: 2px;
 }
 .dt-hero-sub {
   position: relative;
@@ -474,15 +574,17 @@ body::before {
   padding: 0.8em 1.5em;
   border-radius: 2px;
   text-align: center;
-  box-shadow: 0 0 8px rgba(0, 212, 255, 0.15);
+  box-shadow: 0 0 8px var(--wiki-shadow);
 }
 .dt-stat-num {
   display: block;
   font-family: "Press Start 2P", monospace;
   font-size: 1.4rem;
   color: var(--dt-green);
-  text-shadow: 0 0 8px rgba(0, 255, 136, 0.4);
   margin-bottom: 0.3em;
+}
+[data-md-color-scheme="slate"] .dt-stat-num {
+  text-shadow: 0 0 8px rgba(0, 255, 136, 0.4);
 }
 .dt-stat-label {
   font-size: 0.85rem;
@@ -524,10 +626,10 @@ body::before {
 .dt-btn:hover {
   background: var(--dt-cyan);
   color: var(--dt-bg);
-  box-shadow: 0 0 12px rgba(0, 212, 255, 0.4);
+  box-shadow: 0 0 12px var(--wiki-accent-glow);
 }
 
-/* ===== 19a. 章节时间线 ===== */
+/* ===== 22. 章节时间线 ===== */
 .dt-section {
   margin: 2em 0;
 }
@@ -539,17 +641,19 @@ body::before {
   padding-bottom: 0.3em;
   letter-spacing: 1px;
 }
-/* 强制首页 h2 使用深色科技风样式，覆盖 MkDocs 默认 */
+/* 强制首页 h2 使用科技风样式，覆盖 MkDocs 默认 */
 .dt-home .dt-section h2,
 .dt-home h2 {
   font-family: "Press Start 2P", monospace;
   font-size: 0.9rem;
-  color: #00d4ff;
-  border-bottom: 1px solid #2a3548;
+  color: var(--dt-cyan);
+  border-bottom: 1px solid var(--dt-border);
   padding-bottom: 0.3em;
   letter-spacing: 1px;
   font-weight: 700;
-  text-shadow: 0 0 5px rgba(0, 212, 255, 0.3);
+}
+[data-md-color-scheme="slate"] .dt-home h2 {
+  text-shadow: 0 0 5px var(--wiki-accent-glow);
 }
 
 .dt-timeline {
@@ -569,7 +673,7 @@ body::before {
   border-left: 3px solid transparent;
 }
 .dt-timeline-item:hover {
-  background: rgba(0, 212, 255, 0.05);
+  background: var(--wiki-accent-trans);
   border-left-color: var(--dt-cyan);
   transform: translateX(4px);
 }
@@ -581,6 +685,8 @@ body::before {
   padding: 0.4em 0.6em;
   border-radius: 0;
   white-space: nowrap;
+}
+[data-md-color-scheme="slate"] .dt-node {
   animation: dt-pulse 2s ease-in-out infinite;
 }
 @keyframes dt-pulse {
@@ -622,7 +728,7 @@ body::before {
   transform: translateX(4px);
 }
 
-/* ===== 19b. 知识图谱 ===== */
+/* ===== 23. 知识图谱 ===== */
 .dt-km-tags {
   display: flex;
   gap: 1em;
@@ -648,6 +754,8 @@ body::before {
 }
 .dt-term:hover {
   color: var(--dt-green) !important;
+}
+[data-md-color-scheme="slate"] .dt-term:hover {
   text-shadow: 0 0 8px rgba(0, 255, 136, 0.4);
 }
 .dt-term-sep {
@@ -661,7 +769,7 @@ body::before {
 .dt-term-m    { font-size: 0.95rem; color: var(--dt-muted); font-family: "VT323", "Noto Sans SC", monospace; }
 .dt-term-s    { font-size: 0.8rem; color: var(--dt-muted); font-family: "VT323", "Noto Sans SC", monospace; }
 
-/* ===== 19c. 关于区域 ===== */
+/* ===== 24. 关于区域 ===== */
 .dt-about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -676,7 +784,7 @@ body::before {
   bottom: 0;
   width: 1px;
   background: var(--dt-cyan);
-  box-shadow: 0 0 8px rgba(0, 212, 255, 0.3);
+  opacity: 0.3;
 }
 .dt-panel {
   padding: 1.2em 1.5em;
@@ -685,11 +793,11 @@ body::before {
 }
 .dt-panel-cyan {
   border: 1px solid var(--dt-cyan);
-  box-shadow: 0 0 8px rgba(0, 212, 255, 0.1);
+  box-shadow: 0 0 8px var(--wiki-shadow-faint);
 }
 .dt-panel-green {
   border: 1px solid var(--dt-green);
-  box-shadow: 0 0 8px rgba(0, 255, 136, 0.1);
+  box-shadow: 0 0 8px var(--wiki-shadow-faint);
 }
 .dt-panel-title {
   font-family: "Press Start 2P", monospace;
@@ -714,7 +822,7 @@ body::before {
   line-height: 1.6;
 }
 
-/* ===== 19d. 首页强制深色背景 ===== */
+/* ===== 25. 首页背景 ===== */
 .dt-home {
   background: var(--dt-bg);
   color: var(--dt-text);
@@ -733,18 +841,18 @@ body::before {
   color: var(--dt-text);
 }
 
-/* ===== 20. 页脚 ===== */
+/* ===== 26. 页脚 ===== */
 .md-footer-meta {
-  background: #050810;
-  border-top: 1px solid rgba(0, 212, 255, 0.15);
+  background: var(--wiki-footer-bg);
+  border-top: 1px solid var(--wiki-border-light);
 }
 .md-footer-meta__inner {
   padding: 0.8rem;
-  color: #6b7a90;
+  color: var(--wiki-text-muted);
   font-family: "VT323", "Noto Sans SC", monospace;
 }
 
-/* ===== 21. 内容区域最大宽度 ===== */
+/* ===== 27. 内容区域最大宽度 ===== */
 .md-content {
   max-width: 100%;
 }
@@ -752,50 +860,17 @@ body::before {
   margin: 0 1.2rem 2rem;
 }
 
-/* ===== 22. 右侧 TOC ===== */
-.md-nav--secondary .md-nav__link {
-  font-size: 0.72rem;
-  border-radius: 4px;
-  padding: 0.25rem 0.5rem;
-  transition: background-color 0.2s ease;
+/* ===== 28. 图片圆角 ===== */
+.md-typeset img {
+  border-radius: 6px;
 }
-.md-nav--secondary .md-nav__link:hover {
-  background: var(--md-accent-fg-color--transparent);
+.md-typeset figure img {
+  border: 1px solid var(--wiki-border-light);
+  border-radius: 6px;
 }
-
-/* ===== 23. 首页移动端适配 ===== */
-@media screen and (max-width: 768px) {
-  .dt-stats {
-    gap: 0.8em;
-  }
-  .dt-stat {
-    padding: 0.6em 1em;
-  }
-  .dt-stat-num {
-    font-size: 1.1rem;
-  }
-  .dt-about-grid {
-    grid-template-columns: 1fr;
-  }
-  .dt-about-grid::after {
-    display: none;
-  }
-  .dt-hero h1 {
-    font-size: 1.3rem;
-  }
-}
-
-/* ===== 24. 内容渐入动画 ===== */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-.md-content__inner {
-  animation: fadeInUp 0.3s ease-out;
+.md-typeset figcaption {
+  color: var(--wiki-text-muted);
+  font-size: 0.8rem;
+  text-align: center;
+  margin-top: 0.5em;
 }
