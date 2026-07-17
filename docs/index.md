@@ -15,7 +15,7 @@ hide:
 
 <div class="dt-stats">
 <div class="dt-stat"><span class="dt-stat-num">8</span><span class="dt-stat-label">// 章节</span></div>
-<div class="dt-stat"><span class="dt-stat-num">50</span><span class="dt-stat-label">// 页面</span></div>
+<div class="dt-stat"><span class="dt-stat-num">51</span><span class="dt-stat-label">// 页面</span></div>
 <div class="dt-stat"><span class="dt-stat-num">1129+</span><span class="dt-stat-label">// 公式</span></div>
 <div class="dt-stat"><span class="dt-stat-num">56+</span><span class="dt-stat-label">// 代码块</span></div>
 </div>
