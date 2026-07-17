@@ -15,7 +15,7 @@ hide:
 
 <div class="dt-stats">
 <div class="dt-stat"><span class="dt-stat-num">8</span><span class="dt-stat-label">// 章节</span></div>
-<div class="dt-stat"><span class="dt-stat-num">43</span><span class="dt-stat-label">// 页面</span></div>
+<div class="dt-stat"><span class="dt-stat-num">50</span><span class="dt-stat-label">// 页面</span></div>
 <div class="dt-stat"><span class="dt-stat-num">1129+</span><span class="dt-stat-label">// 公式</span></div>
 <div class="dt-stat"><span class="dt-stat-num">56+</span><span class="dt-stat-label">// 代码块</span></div>
 </div>
@@ -107,6 +107,15 @@ hide:
 <div class="dt-item-title">数模与模数转换</div>
 <div class="dt-item-desc">DAC 原理、ADC 原理、典型电路与参数</div>
 <div class="dt-tags"><span>#DAC</span><span>#ADC</span><span>#精度</span></div>
+</div>
+<span class="dt-arrow">▶</span>
+</a>
+<a href="examples/" class="dt-timeline-item">
+<span class="dt-node">[EX]</span>
+<div class="dt-item-body">
+<div class="dt-item-title">例题精解 · 期末真题</div>
+<div class="dt-item-desc">2020-2023 年期末试卷 / 卡诺图 / 时序分析 / 555 / Verilog</div>
+<div class="dt-tags"><span>#真题</span><span>#例题</span><span>#期末</span></div>
 </div>
 <span class="dt-arrow">▶</span>
 </a>

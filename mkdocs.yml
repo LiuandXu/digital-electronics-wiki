@@ -78,7 +78,7 @@ extra_css:
 
 extra:
   stats:
-    pages: 43
+    pages: 50
     formulas: 1129
     images: 0
     code_blocks: 56
@@ -135,6 +135,14 @@ nav:
     - 8.1 D/A转换器: ch08/index.md
     - 8.2 A/D转换器: ch08/8-2.md
     - 本章总结: ch08/summary.md
+  - 例题精解:
+    - 例题首页: examples/index.md
+    - 逻辑代数与组合设计: examples/logic-algebra.md
+    - 触发器波形分析: examples/flipflop.md
+    - 时序逻辑与计数器: examples/sequential.md
+    - DAC/ADC与波形发生器: examples/dac-adc.md
+    - 555定时器: examples/pulse-555.md
+    - Verilog HDL: examples/verilog.md
   - 附录:
     - 附录首页: appendix/index.md
     - 附录 A 常见组合逻辑芯片: appendix/combinational.md
